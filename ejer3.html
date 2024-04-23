@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manejo de Array</title>
+</head>
+<body>
+
+<h2>Manejo de Array</h2>
+
+<p>Introduce un elemento y haz clic en "Agregar" para agregarlo al array:</p>
+<input type="text" id="inputElement">
+<button onclick="agregarElemento()">Agregar</button>
+
+<p>O haz clic en "Eliminar" para eliminar el último elemento del array:</p>
+<button onclick="eliminarUltimoElemento()">Eliminar</button>
+
+<p id="contenidoArray"></p>
+
+<script>
+var array = [];
+
+function actualizarContenidoArray() {
+    document.getElementById("contenidoArray").innerHTML = "Contenido del array: " + JSON.stringify(array);
+}
+
+function agregarElemento() {
+    var nuevoElemento = document.getElementById("inputElement").value;
+    if (nuevoElemento.trim() !== '') {
+        array.push(nuevoElemento);
+        actualizarContenidoArray();
+        document.getElementById("inputElement").value = '';
+    }
+}
+
+function eliminarUltimoElemento() {
+    if (array.length > 0) {
+        array.pop();
+        actualizarContenidoArray();
+    }
+}
+</script>
+
+</body>
+</html>

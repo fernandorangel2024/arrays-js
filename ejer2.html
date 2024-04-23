@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concatenar Cadenas</title>
+</head>
+<body>
+
+<h2>Concatenar Cadenas</h2>
+
+<p>Introduce la primera cadena de elementos separados por coma:</p>
+<textarea id="inputString1" rows="4" cols="50"></textarea>
+
+<p>Introduce la segunda cadena de elementos separados por coma:</p>
+<textarea id="inputString2" rows="4" cols="50"></textarea>
+
+<button onclick="concatenar()">Concatenar</button>
+
+<p id="resultado"></p>
+
+<script>
+function concatenar() {
+    var string1 = document.getElementById("inputString1").value;
+    var string2 = document.getElementById("inputString2").value;
+
+    var array1 = string1.split(",");
+    var array2 = string2.split(",");
+
+    var resultado = array1.concat(array2);
+
+    document.getElementById("resultado").innerHTML = resultado.join("");
+}
+</script>
+
+</body>
+</html>

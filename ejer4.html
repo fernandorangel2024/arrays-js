@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Números Pares</title>
+</head>
+<body>
+
+<h2>Números Pares</h2>
+
+<p>Introduce un conjunto de números separados por coma:</p>
+<textarea id="inputNumbers" rows="4" cols="50"></textarea>
+
+<button onclick="mostrarNumerosPares()">Pares</button>
+
+<div id="tablaNumeros"></div>
+<div id="tablaNumerosPares"></div>
+
+<script>
+function mostrarNumerosPares() {
+    var input = document.getElementById("inputNumbers").value;
+    var numeros = input.split(",").map(function(item) {
+        return parseInt(item.trim());
+    });
+
+    // Crear tabla con todos los números
+    var tablaNumeros = "<h3>Todos los números</h3><table border='1'><tr><th>Número</th></tr>";
+    for (var i = 0; i < numeros.length; i++) {
+        tablaNumeros += "<tr><td>" + numeros[i] + "</td></tr>";
+    }
+    tablaNumeros += "</table>";
+    document.getElementById("tablaNumeros").innerHTML = tablaNumeros;
+
+    // Filtrar números pares
+    var numerosPares = numeros.filter(function(numero) {
+        return numero % 2 === 0;
+    });
+
+    // Crear tabla con los números pares
+    var tablaNumerosPares = "<h3>Números Pares</h3><table border='1'><tr><th>Número</th></tr>";
+    for (var j = 0; j < numerosPares.length; j++) {
+        tablaNumerosPares += "<tr><td>" + numerosPares[j] + "</td></tr>";
+    }
+    tablaNumerosPares += "</table>";
+    document.getElementById("tablaNumerosPares").innerHTML = tablaNumerosPares;
+}
+</script>
+
+</body>
+</html>

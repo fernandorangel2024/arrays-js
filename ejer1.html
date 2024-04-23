@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Suma, Mayor, Menor y Media</title>
+</head>
+<body>
+
+<h2>Calculadora de Suma, Mayor, Menor y Media</h2>
+
+<p>Introduce una lista de números separados por coma:</p>
+<textarea id="inputNumbers" rows="4" cols="50"></textarea>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+    var input = document.getElementById("inputNumbers").value;
+    var numeros = input.split(",").map(function(item) {
+        return parseFloat(item);
+    });
+
+    var suma = 0;
+    var mayor = numeros[0];
+    var menor = numeros[0];
+
+    for (var i = 0; i < numeros.length; i++) {
+        suma += numeros[i];
+        if (numeros[i] > mayor) {
+            mayor = numeros[i];
+        }
+        if (numeros[i] < menor) {
+            menor = numeros[i];
+        }
+    }
+
+    var media = suma / numeros.length;
+
+    var resultado = "Suma: " + suma + "<br>";
+    resultado += "Mayor: " + mayor + "<br>";
+    resultado += "Menor: " + menor + "<br>";
+    resultado += "Media: " + media.toFixed(2);
+
+    document.getElementById("resultado").innerHTML = resultado;
+}
+</script>
+
+</body>
+</html>
